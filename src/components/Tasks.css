@@ -1,3 +1,39 @@
 .tasks-container {
-    margin-top: 40px;
+    margin-top: 20px;
+}
+
+/* Layout bar positioning bounds */
+.tasks-footer {
+    display: flex;
+    justify-content: space-between; /* Pushes text left, clear button right */
+    align-items: center;            /* Perfectly centers elements along the horizontal line */
+    width: 100%;
+    max-width: 700px;               /* Matches the exact width spine of your task boxes */
+    margin: 20px auto 0;            /* Adds uniform space above the footer bar */
+    box-sizing: border-box;
+    padding: 0 4px;                 /* Slight alignment inset adjustment */
+}
+
+/* Typography display left */
+.active-count {
+    font-size: 14px;
+    color: var(--text-muted, #a1a1aa); /* Soft grayscale text */
+}
+
+/* Pill design layout button right */
+.clear-btn {
+    font-size: 14px;
+    padding: 8px 20px;
+    border-radius: 20px;            /* Produces the round pill shape contour from your image */
+    background: transparent;
+    border: 1px solid var(--border, #444); /* Clean matching layout outline */
+    color: var(--accent, #646cff);  /* Inherits your project active element tone */
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Interactive touch indicators */
+.clear-btn:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--accent-border, #888);
 }
