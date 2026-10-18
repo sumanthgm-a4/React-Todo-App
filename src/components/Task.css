@@ -1,0 +1,64 @@
+
+/* ==========================================
+            CLEANED TASK STYLES 
+   ========================================== */
+
+/* Outer container constraint */
+.task-box {
+    /* margin-top: 20px; */
+    width: 100%;
+    max-width: 700px;
+    box-sizing: border-box;
+    margin-bottom: 12px; /* Breathing space between stacked tasks */
+    margin-left: auto;   
+    margin-right: auto; 
+    cursor: pointer; 
+}
+
+/* Structural flex layout inside the box */
+.task-box pre.task-content {
+    display: flex;
+    justify-content: space-between; 
+    align-items: flex-start;        
+    gap: 20px;                      
+    
+    background: #1e1e24;            
+    border: 1px solid var(--border);
+    border-radius: 8px;             
+    padding: 16px 20px;             
+    margin: 0;
+    
+    white-space: pre-wrap;
+    overflow-wrap: break-word; 
+    word-break: normal;
+}
+
+/* Forces alignment to the left side */
+.task-message {
+    text-align: left;
+    flex-grow: 1;                   
+    overflow-wrap: break-word; 
+    word-break: break-word;          
+}
+
+/* Forces alignment to the right side */
+.task-date {
+    text-align: right;
+    flex-shrink: 0;                 
+    color: #888;                    
+    font-size: 14px;                
+    white-space: nowrap;            
+}
+
+/* Checkbox Style Tuning */
+.task-checkbox {
+    width: 15px;
+    height: 15px;         
+    cursor: pointer;
+    accent-color: var(--accent, #646cff); /* Dynamic app theme mapping */
+    margin: 0;
+    
+    flex-shrink: 0;       /* Crucial: Prevents checkbox from squishing on tiny screens */
+    align-self: center; 
+    margin-top: 1px;      /* Micro-alignment balancing */
+}
