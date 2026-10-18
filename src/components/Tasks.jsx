@@ -19,13 +19,15 @@ function Tasks({ tasks, setTasks }) {
 
     return (
         <div className="tasks-container">
-            {
-                tasksInReverse.map((task) => {
-                    return (
-                        <Task key={task.id} task={task} setTasks={setTasks} />
-                    );
-                })
-            }
+            <div className="tasks-list">
+                {
+                    tasksInReverse.map((task) => {
+                        return (
+                            <Task key={task.id} task={task} setTasks={setTasks} />
+                        );
+                    })
+                }
+            </div>
             <div className="tasks-footer">
                 <span className="active-count">{notDoneCount} active item(s) left</span>
                 <button className="clear-btn" onClick={handleMarkCompleted}>

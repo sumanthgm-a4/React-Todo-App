@@ -1,39 +1,75 @@
+/* Layout container positioning bounds */
 .tasks-container {
-    margin-top: 20px;
+  max-width: 700px;
+  margin: 20px auto 0;
+  box-sizing: border-box;
+  padding-bottom: 90px; 
 }
 
-/* Layout bar positioning bounds */
+.tasks-list {
+  width: 100%;
+}
+
+/* The fixed footer container */
 .tasks-footer {
-    display: flex;
-    justify-content: space-between; /* Pushes text left, clear button right */
-    align-items: center;            /* Perfectly centers elements along the horizontal line */
-    width: 100%;
-    max-width: 700px;               /* Matches the exact width spine of your task boxes */
-    margin: 20px auto 0;            /* Adds uniform space above the footer bar */
-    box-sizing: border-box;
-    padding: 0 4px;                 /* Slight alignment inset adjustment */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%; 
+  
+  /* Use CSS Grid to automatically create a centered 700px column layout */
+  display: grid;
+  grid-template-columns: minmax(0, 700px);
+  justify-content: center;
+  
+  background: #111113; /* Solid match to your app canvas background */
+  border-top: 1px solid rgba(255, 255, 255, 0.08); 
+  padding: 16px 24px; 
+  box-sizing: border-box;
+  z-index: 999;
+}
+
+/* Forces the direct span and button to behave like your original flex row inside that grid column */
+.tasks-footer::before,
+.tasks-footer::after {
+  content: none; /* Safe reset */
+}
+
+/* Direct element configuration context mapping */
+.tasks-footer .active-count {
+  grid-column: 1;
+  justify-self: start;
+  grid-row: 1;
+  align-self: center;
+}
+
+.tasks-footer .clear-btn {
+  grid-column: 1;
+  justify-self: end;
+  grid-row: 1;
+  align-self: center;
 }
 
 /* Typography display left */
 .active-count {
-    font-size: 14px;
-    color: var(--text-muted, #a1a1aa); /* Soft grayscale text */
+  font-size: 14px;
+  color: var(--text-muted, #a1a1aa); 
 }
 
 /* Pill design layout button right */
 .clear-btn {
-    font-size: 14px;
-    padding: 8px 20px;
-    border-radius: 20px;            /* Produces the round pill shape contour from your image */
-    background: transparent;
-    border: 1px solid var(--border, #444); /* Clean matching layout outline */
-    color: var(--accent, #646cff);  /* Inherits your project active element tone */
-    cursor: pointer;
-    transition: background-color 0.2s ease, border-color 0.2s ease;
+  font-size: 14px;
+  padding: 8px 20px;
+  border-radius: 20px; /* Restored back to your original pill configuration shape */
+  background: transparent;
+  border: 1px solid var(--border, #444); 
+  color: var(--accent, #646cff); 
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 /* Interactive touch indicators */
 .clear-btn:hover {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: var(--accent-border, #888);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--accent-border, #888);
 }

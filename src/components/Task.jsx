@@ -11,6 +11,22 @@ function Task({ task, setTasks }) {
         );
     }
 
+    function handleDeleteClick(e) {
+        e.stopPropagation();
+        setTasks((prevTasks) => 
+            prevTasks.filter(t => t.id !== task.id)
+        );
+    }
+
+    const formattedDateTime = new Date(task.timestamp).toLocaleString('en-IN', {
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric',
+        hour: 'numeric',
+        minute: '2-digit',
+        hour12: true
+    }).toLowerCase(); // Lowercases 'pm/am' for a smoother aesthetic appearance
+
     return (
         <div className="task-box" onClick={handleCheckboxChecked}>
             <pre className="task-content">
@@ -21,7 +37,12 @@ function Task({ task, setTasks }) {
                     className="task-checkbox" 
                 />
                 <span className="task-message">{task.message}</span>
-                <span className="task-date">{new Date(task.timestamp).toLocaleString()}</span>
+                <div className="task-right-section">
+                    <span className="task-date">{formattedDateTime}</span>
+                    <button className="delete-task-btn" onClick={handleDeleteClick}>
+                        &times;
+                    </button>
+                </div>
             </pre>
         </div>
     )

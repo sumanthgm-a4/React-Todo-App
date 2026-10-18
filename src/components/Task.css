@@ -1,15 +1,9 @@
-
-/* ==========================================
-            CLEANED TASK STYLES 
-   ========================================== */
-
 /* Outer container constraint */
 .task-box {
-    /* margin-top: 20px; */
     width: 100%;
     max-width: 700px;
     box-sizing: border-box;
-    margin-bottom: 12px; /* Breathing space between stacked tasks */
+    margin-bottom: 12px; 
     margin-left: auto;   
     margin-right: auto; 
     cursor: pointer; 
@@ -20,12 +14,12 @@
     display: flex;
     justify-content: space-between; 
     align-items: flex-start;        
-    gap: 20px;                      
+    gap: 16px;                      
     
     background: #1e1e24;            
-    border: 1px solid var(--border);
+    border: 1px solid var(--border, #333);
     border-radius: 8px;             
-    padding: 16px 20px;             
+    padding: 16px;             
     margin: 0;
     
     white-space: pre-wrap;
@@ -36,29 +30,94 @@
 /* Forces alignment to the left side */
 .task-message {
     text-align: left;
-    flex-grow: 1;                   
+    flex: 1;                   
     overflow-wrap: break-word; 
-    word-break: break-word;          
+    word-break: break-word;  
+    font-size: 15px;        
 }
 
-/* Forces alignment to the right side */
+/* Container for handling right-side column alignment pairs */
+.task-right-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;              
+    flex-shrink: 0;         
+    align-self: flex-start; /* Matches line height positioning */
+}
+
+/* Date Layout Configuration */
 .task-date {
     text-align: right;
     flex-shrink: 0;                 
     color: #888;                    
-    font-size: 14px;                
+    font-size: 13px;                
     white-space: nowrap;            
 }
 
 /* Checkbox Style Tuning */
 .task-checkbox {
-    width: 15px;
-    height: 15px;         
+    width: 16px;
+    height: 16px;         
     cursor: pointer;
-    accent-color: var(--accent, #646cff); /* Dynamic app theme mapping */
+    accent-color: var(--accent, #646cff); 
     margin: 0;
-    
-    flex-shrink: 0;       /* Crucial: Prevents checkbox from squishing on tiny screens */
-    align-self: center; 
-    margin-top: 1px;      /* Micro-alignment balancing */
+    flex-shrink: 0;       
+    align-self: flex-start; 
+    margin-top: 2px; /* Micro alignment correction to line 1 */
+}
+
+/* Red-accent delete action button mapping */
+.delete-task-btn {
+    background: transparent;
+    border: none;
+    color: #555;            
+    font-size: 20px;        
+    cursor: pointer;
+    line-height: 1;
+    padding: 4px 6px;
+    border-radius: 4px;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.delete-task-btn:hover {
+    color: #ef4444;         
+    background: rgba(239, 68, 68, 0.1); 
+}
+
+/* =======================================================
+   RESPONSIVE DESIGN BREAKPOINTS (Mobile Optimization)
+   ======================================================= */
+
+/* Small Mobile Screens (below 520px) */
+@media (max-width: 520px) {
+    .task-box pre.task-content {
+        flex-direction: column; /* Stack into single-column timeline */
+        align-items: stretch;
+        gap: 12px;
+        padding: 14px;
+    }
+
+    .task-checkbox {
+        align-self: flex-start;
+        display: inline-block;
+        margin-right: 8px;
+    }
+
+    /* Wrap message layout row inline contextually with check */
+    .task-message {
+        font-size: 14px;
+    }
+
+    /* Move date and delete bar underneath message for layout breathing room */
+    .task-right-section {
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        padding-top: 10px;
+        justify-content: space-between;
+        align-self: stretch;
+    }
+
+    .task-date {
+        text-align: left;
+        font-size: 12px;
+    }
 }
