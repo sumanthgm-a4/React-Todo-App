@@ -1,26 +1,29 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import TextInput from './components/TextInput'
-import Tasks from './components/Tasks';
+import HomePage from './pages/HomePage';
+import { Routes, Route } from 'react-router';
+import IndividualTaskPage from './pages/IndividualTaskPage';
 
 function App() {
-  // localStorage.clear()
+    // localStorage.clear()
 
-  const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem("taskList")) || []);
+    const [tasks, setTasks] = useState(() => {
+        return JSON.parse(localStorage.getItem("taskList")) || [];
+    });
 
-  useEffect(() => {
-    localStorage.setItem('taskList', JSON.stringify(tasks));
-    console.log(tasks);
-  }, [tasks]);
+    useEffect(() => {
+        localStorage.setItem('taskList', JSON.stringify(tasks));
+        console.log(tasks);
+    }, [tasks]);
 
-  return (
-    <div className="app-container">
-      <h1>Todo App</h1>
-      <TextInput tasks={tasks} setTasks={setTasks} />
-      <hr />
-      <Tasks tasks={tasks} setTasks={setTasks} />
-    </div>
-  )
+    return (
+        <div className="app-container">
+            <Routes>
+                <Route path='/' element={<HomePage tasks={tasks} setTasks={setTasks} />} />
+                <Route path='/tasks/:taskId' element={<IndividualTaskPage tasks={tasks} setTasks={setTasks} />} />
+            </Routes>
+        </div>
+    )
 }
 
 export default App

@@ -1,0 +1,122 @@
+/* Inherits the exact background theme of your App canvas */
+.task-page-dark-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  padding: 40px 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Card Container layout that mirrors your home dashboard components */
+.task-dark-card {
+  background-color: #1a1a1e; 
+  border: 1px solid #2a2a30;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 600px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-sizing: border-box;
+}
+
+/* Header structural layout rules */
+.task-dark-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-bottom: 1px solid #2a2a30;
+  padding-bottom: 14px;
+}
+
+.task-dark-header h2 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #e1e1e6;
+  font-weight: 500;
+}
+
+/* Back navigation text styling */
+.btn-dark-back {
+  background: none;
+  border: none;
+  color: #a0a0b2;
+  font-size: 0.95rem;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.btn-dark-back:hover {
+  background-color: #2a2a30;
+  color: #ffffff;
+}
+
+/* Input Workspace Textarea workspace block */
+.task-dark-textarea {
+  width: 100%;
+  background-color: #202024;
+  border: 1px solid #323238;
+  border-radius: 6px;
+  padding: 14px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #e1e1e6;
+  resize: vertical;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+/* Uses the purple glow matching your checked status frames */
+.task-dark-textarea:focus {
+  border-color: #9867c5; 
+}
+
+/* Footer layout configuration alignment */
+.task-dark-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4px;
+}
+
+/* Subtle task metadata info styling */
+.task-dark-timestamp {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #7c7c8a;
+}
+
+/* 🌟 PERFECT MATCH: Adopted explicitly from your .counter component values */
+.btn-dark-save {
+  font-size: 16px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: var(--accent);
+  background: var(--accent-bg);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: border-color 0.3s, background-color 0.3s;
+
+  &:hover {
+    border-color: var(--accent-border);
+  }
+  &:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+/* Error state safety boundary layout */
+.error-state h2 {
+  color: #f75a68;
+  margin-bottom: 12px;
+}
